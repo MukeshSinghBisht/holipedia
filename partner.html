@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner with Holipedia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECEDE6;
+    --paper-raised:#F4F5EF;
+    --ink:#182620;
+    --pine:#1F3B2C;
+    --pine-deep:#122018;
+    --brass:#A9823C;
+    --brass-deep:#8A6A2E;
+    --slate:#52676B;
+    --line:#D3D5C7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  nav{padding:28px 0 0;}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;}
+  .brand{
+    font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;
+    color:var(--pine-deep);letter-spacing:-0.01em;text-decoration:none;
+  }
+  .back{
+    font-size:0.92rem;color:var(--slate);text-decoration:none;font-weight:500;
+  }
+
+  /* ---------- header ---------- */
+  .page-head{padding:72px 0 56px;}
+  .page-head h1{
+    font-family:'Fraunces',serif;
+    font-size:2.9rem;
+    font-weight:500;
+    letter-spacing:-0.015em;
+    color:var(--pine-deep);
+    max-width:16ch;
+  }
+  .page-head .sub{
+    margin-top:20px;
+    font-size:1.08rem;
+    color:var(--slate);
+    max-width:46ch;
+  }
+
+  /* ---------- stat strip ---------- */
+  .stats{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:36px 0;
+  }
+  .stats .row{display:flex;flex-wrap:wrap;}
+  .stat{
+    flex:1 1 180px;
+    padding:0 28px;
+    border-left:1px solid var(--line);
+  }
+  .stat:first-child{border-left:none;padding-left:0;}
+  .stat .value{
+    font-family:'Fraunces',serif;
+    font-size:2.1rem;
+    font-weight:500;
+    color:var(--pine-deep);
+  }
+  .stat .label{
+    margin-top:4px;
+    font-size:0.88rem;
+    color:var(--slate);
+  }
+
+  /* ---------- why ---------- */
+  .why{padding:72px 0;}
+  .why h2{
+    font-family:'Fraunces',serif;
+    font-size:1.7rem;
+    font-weight:500;
+    color:var(--pine-deep);
+    margin-bottom:34px;
+  }
+  .why-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+  }
+  .why-item{
+    padding:22px 28px 22px 0;
+    border-top:1px solid var(--line);
+  }
+  .why-item:nth-child(odd){padding-right:32px;}
+  .why-item:nth-child(even){padding-left:32px;border-left:1px solid var(--line);}
+  .why-item:nth-child(-n+2){border-top:none;}
+  .why-item .t{
+    font-weight:600;
+    color:var(--pine-deep);
+    margin-bottom:6px;
+  }
+  .why-item .d{
+    font-size:0.92rem;
+    color:var(--slate);
+  }
+
+  /* ---------- process ---------- */
+  .process{
+    background:var(--paper-raised);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:72px 0;
+  }
+  .process h2{
+    font-family:'Fraunces',serif;
+    font-size:1.7rem;
+    font-weight:500;
+    color:var(--pine-deep);
+    margin-bottom:40px;
+  }
+  .process ol{
+    list-style:none;
+    counter-reset:step;
+  }
+  .process li{
+    counter-increment:step;
+    display:grid;
+    grid-template-columns:52px 1fr;
+    gap:20px;
+    padding:24px 0;
+    border-top:1px solid var(--line);
+  }
+  .process li:first-child{border-top:none;padding-top:0;}
+  .process li::before{
+    content:counter(step);
+    font-family:'Fraunces',serif;
+    font-size:1.5rem;
+    color:var(--brass-deep);
+  }
+  .process .t{font-weight:600;color:var(--pine-deep);margin-bottom:4px;}
+  .process .d{font-size:0.92rem;color:var(--slate);max-width:52ch;}
+
+  /* ---------- commission ---------- */
+  .commission{padding:72px 0;}
+  .commission .panel{
+    background:var(--pine-deep);
+    color:var(--paper-raised);
+    border-radius:4px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:32px;
+    align-items:center;
+  }
+  .commission .num{
+    font-family:'Fraunces',serif;
+    font-size:3.4rem;
+    font-weight:500;
+    color:var(--brass);
+    white-space:nowrap;
+  }
+  .commission p{
+    color:#C9D2C5;
+    max-width:48ch;
+    font-size:0.98rem;
+  }
+  .commission p strong{color:var(--paper-raised);}
+
+  /* ---------- contact ---------- */
+  .contact{padding:72px 0 88px;}
+  .contact h2{
+    font-family:'Fraunces',serif;
+    font-size:1.9rem;
+    font-weight:500;
+    color:var(--pine-deep);
+    margin-bottom:10px;
+  }
+  .contact .sub{color:var(--slate);margin-bottom:36px;max-width:40ch;}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .contact-item{
+    padding:22px 24px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .contact-item .l{font-size:0.82rem;color:var(--slate);margin-bottom:6px;}
+  .contact-item a{color:var(--pine-deep);font-weight:500;text-decoration:none;}
+  .contact-item a:hover{text-decoration:underline;}
+  .register-cta{
+    margin-top:36px;
+  }
+  .btn-primary{
+    background:var(--pine-deep);
+    color:var(--paper-raised);
+    padding:14px 30px;
+    border-radius:3px;
+    text-decoration:none;
+    font-weight:500;
+    font-size:1rem;
+    display:inline-block;
+  }
+
+  footer{padding:40px 0 48px;border-top:1px solid var(--line);}
+  footer .wrap{font-size:0.88rem;color:var(--slate);}
+
+  @media (max-width:700px){
+    .page-head h1{font-size:2.2rem;}
+    .stats .row{flex-direction:column;gap:20px;}
+    .stat{border-left:none;padding-left:0;}
+    .why-list{grid-template-columns:1fr;}
+    .why-item:nth-child(even){padding-left:0;border-left:none;}
+    .why-item:nth-child(-n+2){border-top:1px solid var(--line);}
+    .why-item:first-child{border-top:none;}
+    .process li{grid-template-columns:36px 1fr;}
+    .commission .panel{grid-template-columns:1fr;text-align:left;}
+    .contact-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="brand">Holipedia</a>
+    <a href="index.html" class="back">← Back home</a>
+  </div>
+</nav>
+
+<section class="page-head">
+  <div class="wrap">
+    <h1>Partner with Holipedia</h1>
+    <p class="sub">List your hotel or homestay with us. No listing fee, no setup cost — we only earn when you do.</p>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="wrap">
+    <div class="row">
+      <div class="stat">
+        <div class="value">₹0</div>
+        <div class="label">Upfront cost to list</div>
+      </div>
+      <div class="stat">
+        <div class="value">10–12%</div>
+        <div class="label">Commission, only on completed stays</div>
+      </div>
+      <div class="stat">
+        <div class="value">4</div>
+        <div class="label">Regions — Bhimtal, Nainital, Haldwani, Ramnagar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <h2>Why hoteliers work with us</h2>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="t">You carry no risk</div>
+        <div class="d">No listing fee, no monthly charge. You're paid by the guest directly; we invoice our commission after the stay is completed.</div>
+      </div>
+      <div class="why-item">
+        <div class="t">You set your own terms</div>
+        <div class="d">Your rates, your room availability, your cancellation policy. We work around what you already run.</div>
+      </div>
+      <div class="why-item">
+        <div class="t">One person, one WhatsApp thread</div>
+        <div class="d">No dashboard to learn. Booking requests come to you directly on WhatsApp, the way you already do business.</div>
+      </div>
+      <div class="why-item">
+        <div class="t">We know this stretch of hills</div>
+        <div class="d">We're local to Bhimtal, Nainital, Haldwani and Ramnagar — not a national platform treating your property as a listing number.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process">
+  <div class="wrap">
+    <h2>How onboarding works</h2>
+    <ol>
+      <li>
+        <div>
+          <div class="t">Tell us about your property</div>
+          <div class="d">Share your rooms, rates and photos with us on WhatsApp or email — five minutes, no forms to fill.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="t">We list and promote it</div>
+          <div class="d">Your property goes live across our traveller channels, matched to the kind of guest it actually suits.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="t">We send you booking requests</div>
+          <div class="d">Every enquiry comes straight to your phone. You confirm availability and talk to the guest directly.</div>
+        </div>
+      </li>
+      <li>
+        <div>
+          <div class="t">Guest stays, you invoice us</div>
+          <div class="d">Once the stay is complete, we settle our commission with you — nothing before, nothing hidden.</div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="commission">
+  <div class="wrap">
+    <div class="panel">
+      <div class="num">10–12%</div>
+      <p><strong>Commission, charged only on completed, confirmed bookings.</strong> No listing fee. No minimum room count. No long-term contract — if it doesn't work for you, you can step away any time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <h2>Register your property</h2>
+    <p class="sub">Send us your details and we'll get your listing live within a few days.</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="l">WhatsApp</div>
+        <a href="https://wa.me/918383809682" target="_blank">+91 83838 09682</a>
+      </div>
+      <div class="contact-item">
+        <div class="l">Email</div>
+        <a href="mailto:holipedia2026@gmail.com">holipedia2026@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="l">Instagram</div>
+        <a href="https://instagram.com/holi.pedia" target="_blank">@holi.pedia</a>
+      </div>
+      <div class="contact-item">
+        <div class="l">Facebook</div>
+        <a href="https://facebook.com/holi.pedia" target="_blank">@holi.pedia</a>
+      </div>
+    </div>
+    <div class="register-cta">
+      <a class="btn-primary" href="https://wa.me/918383809682?text=Hi%2C%20I%27d%20like%20to%20list%20my%20hotel%20with%20Holipedia" target="_blank">Register on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Holipedia</div>
+</footer>
+
+</body>
+</html>

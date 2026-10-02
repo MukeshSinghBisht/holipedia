@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Holipedia — stays in the hills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECEDE6;
+    --paper-raised:#F4F5EF;
+    --ink:#182620;
+    --pine:#1F3B2C;
+    --pine-deep:#122018;
+    --brass:#A9823C;
+    --brass-deep:#8A6A2E;
+    --slate:#52676B;
+    --line:#D3D5C7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+  }
+  .serif{font-family:'Fraunces',serif;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  /* ---------- nav ---------- */
+  nav{
+    padding:28px 0 0;
+  }
+  nav .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .brand{
+    font-family:'Fraunces',serif;
+    font-size:1.5rem;
+    font-weight:600;
+    color:var(--pine-deep);
+    letter-spacing:-0.01em;
+    text-decoration:none;
+  }
+  .nav-cta{
+    font-size:0.95rem;
+    color:var(--pine-deep);
+    text-decoration:none;
+    font-weight:500;
+    border-bottom:1px solid var(--brass);
+    padding-bottom:2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:88px 0 0;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.1fr 0.9fr;
+    gap:40px;
+    align-items:end;
+    position:relative;
+    z-index:2;
+  }
+  .hero h1{
+    font-size:3.4rem;
+    font-weight:500;
+    line-height:1.08;
+    letter-spacing:-0.015em;
+    color:var(--pine-deep);
+    max-width:12ch;
+  }
+  .hero h1 em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--brass-deep);
+  }
+  .hero .sub{
+    margin-top:24px;
+    font-size:1.08rem;
+    color:var(--slate);
+    max-width:38ch;
+  }
+  .hero .ctas{
+    margin-top:34px;
+    display:flex;
+    gap:22px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .btn-primary{
+    background:var(--pine-deep);
+    color:var(--paper-raised);
+    padding:13px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    font-weight:500;
+    font-size:0.98rem;
+    display:inline-block;
+  }
+  .link-quiet{
+    color:var(--pine-deep);
+    text-decoration:none;
+    font-weight:500;
+    font-size:0.98rem;
+    border-bottom:1px solid var(--line);
+    padding-bottom:2px;
+  }
+  .hero-art{
+    height:220px;
+    position:relative;
+  }
+  .hero-art svg{width:100%;height:100%;}
+
+  .ridgeline-full{
+    width:100%;
+    display:block;
+    margin-top:56px;
+  }
+
+  /* ---------- regions ---------- */
+  .regions{
+    padding:40px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .regions .row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+  }
+  .region{
+    flex:1 1 200px;
+    padding:22px 28px 22px 0;
+    border-left:1px solid var(--line);
+    padding-left:26px;
+  }
+  .region:first-child{border-left:none;padding-left:0;}
+  .region .name{
+    font-family:'Fraunces',serif;
+    font-size:1.2rem;
+    font-weight:500;
+    color:var(--pine-deep);
+  }
+  .region .note{
+    margin-top:6px;
+    font-size:0.88rem;
+    color:var(--slate);
+  }
+
+  /* ---------- philosophy ---------- */
+  .philosophy{
+    padding:84px 0;
+  }
+  .philosophy .wrap{
+    max-width:720px;
+  }
+  .philosophy p{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:1.65rem;
+    font-weight:400;
+    line-height:1.45;
+    color:var(--pine-deep);
+  }
+  .philosophy .attribution{
+    margin-top:22px;
+    font-family:'Inter',sans-serif;
+    font-style:normal;
+    font-size:0.9rem;
+    color:var(--slate);
+  }
+
+  /* ---------- for travellers ---------- */
+  .travellers{
+    background:var(--paper-raised);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:64px 0;
+  }
+  .travellers .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:start;
+  }
+  .travellers h2{
+    font-family:'Fraunces',serif;
+    font-size:1.8rem;
+    font-weight:500;
+    color:var(--pine-deep);
+    max-width:14ch;
+  }
+  .travellers .body p{
+    color:var(--slate);
+    margin-bottom:18px;
+    max-width:48ch;
+  }
+  .travellers .body a{
+    color:var(--pine-deep);
+    font-weight:500;
+  }
+
+  /* ---------- partner teaser ---------- */
+  .partner-teaser{
+    padding:72px 0 88px;
+  }
+  .partner-teaser .box{
+    background:var(--pine-deep);
+    color:var(--paper-raised);
+    border-radius:4px;
+    padding:52px 48px;
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+    gap:32px;
+    align-items:center;
+  }
+  .partner-teaser h2{
+    font-family:'Fraunces',serif;
+    font-size:1.9rem;
+    font-weight:500;
+    line-height:1.2;
+  }
+  .partner-teaser p{
+    margin-top:14px;
+    color:#C9D2C5;
+    max-width:40ch;
+    font-size:0.98rem;
+  }
+  .partner-teaser .btn-primary{
+    background:var(--brass);
+    color:var(--pine-deep);
+    justify-self:end;
+    white-space:nowrap;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    padding:40px 0 48px;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    font-size:0.88rem;
+    color:var(--slate);
+  }
+  footer a{color:var(--slate);}
+
+  @media (max-width:760px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-art{display:none;}
+    .hero h1{font-size:2.5rem;max-width:none;}
+    .travellers .grid{grid-template-columns:1fr;}
+    .partner-teaser .box{grid-template-columns:1fr;text-align:left;}
+    .partner-teaser .btn-primary{justify-self:start;}
+    .regions .row{flex-direction:column;}
+    .region{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:18px;}
+    .region:first-child{border-top:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="brand">Holipedia</a>
+    <a href="partner.html" class="nav-cta">Partner with us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Stays in the hills, chosen the way your own family would choose them.</h1>
+      <p class="sub">Holipedia connects travellers with hotels and homestays across Bhimtal, Nainital, Haldwani and Ramnagar — the ones we'd send our own family to.</p>
+      <div class="ctas">
+        <a class="btn-primary" href="https://wa.me/918383809682?text=Hi%2C%20I%27m%20looking%20for%20a%20stay" target="_blank">Find a stay on WhatsApp</a>
+        <a class="link-quiet" href="partner.html">List your hotel</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMax meet">
+        <polygon points="0,220 0,140 70,60 130,130 180,40 260,140 320,80 400,150 400,220" fill="#1F3B2C" opacity="0.55"/>
+        <polygon points="0,220 0,170 90,100 160,160 230,90 310,170 400,120 400,220" fill="#1F3B2C" opacity="0.85"/>
+        <circle cx="330" cy="50" r="18" fill="#A9823C" opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="regions">
+  <div class="wrap">
+    <div class="row">
+      <div class="region">
+        <div class="name">Bhimtal</div>
+        <div class="note">Lakeside stays, quieter than Nainital</div>
+      </div>
+      <div class="region">
+        <div class="name">Nainital</div>
+        <div class="note">The mall road classics and the hillside quiet ones</div>
+      </div>
+      <div class="region">
+        <div class="name">Haldwani</div>
+        <div class="note">The gateway — where most journeys into the hills begin</div>
+      </div>
+      <div class="region">
+        <div class="name">Ramnagar</div>
+        <div class="note">Jim Corbett country, forest-edge stays</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy">
+  <div class="wrap">
+    <p>We don't list every hotel that asks. We visit, we ask around, and we send travellers to places we'd stay ourselves.</p>
+    <div class="attribution">— how we choose, Holipedia</div>
+  </div>
+</section>
+
+<section class="travellers">
+  <div class="wrap grid">
+    <h2>Planning a trip to the hills?</h2>
+    <div class="body">
+      <p>We're early — our stay collection is still growing region by region. Message us on WhatsApp with your dates and what you're looking for, and we'll match you with a place that fits, often one not listed anywhere else yet.</p>
+      <p><a href="https://wa.me/918383809682" target="_blank">Message Holipedia on WhatsApp →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="partner-teaser">
+  <div class="wrap">
+    <div class="box">
+      <div>
+        <h2>Run a hotel or homestay in these hills?</h2>
+        <p>List with Holipedia at no upfront cost. You only pay a commission once a guest actually stays.</p>
+      </div>
+      <a class="btn-primary" href="partner.html">See how partnering works</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Holipedia</div>
+    <div><a href="mailto:holipedia2026@gmail.com">holipedia2026@gmail.com</a>&nbsp;&nbsp;&nbsp;<a href="https://instagram.com/holi.pedia" target="_blank">@holi.pedia</a></div>
+  </div>
+</footer>
+
+</body>
+</html>
