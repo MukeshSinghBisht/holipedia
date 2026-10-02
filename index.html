@@ -9,15 +9,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#ECEDE6;
-    --paper-raised:#F4F5EF;
-    --ink:#182620;
-    --pine:#1F3B2C;
-    --pine-deep:#122018;
-    --brass:#A9823C;
-    --brass-deep:#8A6A2E;
-    --slate:#52676B;
-    --line:#D3D5C7;
+    --paper:#F4F0E8;
+    --paper-raised:#FBF9F4;
+    --ink:#202A32;
+    --pine:#28485A;
+    --pine-deep:#142D40;
+    --brass:#B68F55;
+    --brass-deep:#80613A;
+    --slate:#5C6B73;
+    --line:#DED8CD;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -41,12 +41,22 @@
     align-items:center;
   }
   .brand{
-    font-family:'Fraunces',serif;
-    font-size:1.5rem;
-    font-weight:600;
-    color:var(--pine-deep);
-    letter-spacing:-0.01em;
+    display:block;
+    position:relative;
+    width:130px;
+    height:78px;
+    overflow:hidden;
     text-decoration:none;
+  }
+  .brand img{
+    position:relative;
+    top:-28px;
+    left:-5px;
+    display:block;
+    width:140px;
+    height:140px;
+    max-width:none;
+    mix-blend-mode:multiply;
   }
   .nav-cta{
     font-size:0.95rem;
@@ -56,36 +66,46 @@
     border-bottom:1px solid var(--brass);
     padding-bottom:2px;
   }
+  .nav-links{display:flex;align-items:center;gap:24px;}
+  .nav-links a:not(.nav-cta){color:var(--slate);font-size:0.92rem;text-decoration:none;}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+    outline:3px solid var(--brass);
+    outline-offset:3px;
+  }
+  a,button{transition:color 160ms ease,background-color 160ms ease;}
+  a:hover{color:var(--brass-deep);}
 
   /* ---------- hero ---------- */
   .hero{
     position:relative;
-    padding:88px 0 0;
+    padding:32px 0 0;
     overflow:hidden;
   }
   .hero .wrap{
     display:grid;
     grid-template-columns:1.1fr 0.9fr;
-    gap:40px;
-    align-items:end;
+    gap:56px;
+    align-items:center;
     position:relative;
     z-index:2;
   }
   .hero h1{
-    font-size:3.4rem;
+    font-family:'Fraunces',serif;
+    font-size:clamp(3rem,5vw,4.15rem);
     font-weight:500;
     line-height:1.08;
-    letter-spacing:-0.015em;
+    letter-spacing:-0.025em;
     color:var(--pine-deep);
-    max-width:12ch;
+    max-width:14ch;
   }
   .hero h1 em{
     font-style:italic;
     font-weight:400;
     color:var(--brass-deep);
   }
+  .hero .eyebrow{margin-bottom:12px;}
   .hero .sub{
-    margin-top:24px;
+    margin-top:18px;
     font-size:1.08rem;
     color:var(--slate);
     max-width:38ch;
@@ -107,6 +127,7 @@
     font-size:0.98rem;
     display:inline-block;
   }
+  .btn-primary:hover{background:var(--pine);color:var(--paper-raised);}
   .link-quiet{
     color:var(--pine-deep);
     text-decoration:none;
@@ -116,10 +137,24 @@
     padding-bottom:2px;
   }
   .hero-art{
-    height:220px;
+    height:430px;
     position:relative;
+    margin:0 0 8px;
+    overflow:hidden;
+    border-radius:12px;
+    background:var(--line);
   }
-  .hero-art svg{width:100%;height:100%;}
+  .hero-art img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 57%;}
+  .hero-art figcaption{
+    position:absolute;
+    right:12px;
+    bottom:12px;
+    padding:5px 9px;
+    border-radius:2px;
+    background:rgba(18,32,24,.76);
+    color:#fff;
+    font-size:.72rem;
+  }
 
   .ridgeline-full{
     width:100%;
@@ -127,38 +162,94 @@
     margin-top:56px;
   }
 
-  /* ---------- regions ---------- */
-  .regions{
-    padding:40px 0 64px;
-    border-bottom:1px solid var(--line);
+  /* ---------- trip planner ---------- */
+  .plan{padding:44px 0 56px;}
+  .plan .panel{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:36px;
+    box-shadow:0 18px 50px rgba(20,45,64,.08);
   }
-  .regions .row{
-    display:flex;
-    flex-wrap:wrap;
-    gap:0;
+  .eyebrow{
+    color:var(--brass-deep);
+    font-size:0.78rem;
+    font-weight:600;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
   }
-  .region{
-    flex:1 1 200px;
-    padding:22px 28px 22px 0;
-    border-left:1px solid var(--line);
-    padding-left:26px;
-  }
-  .region:first-child{border-left:none;padding-left:0;}
-  .region .name{
-    font-family:'Fraunces',serif;
-    font-size:1.2rem;
-    font-weight:500;
-    color:var(--pine-deep);
-  }
-  .region .note{
+  .plan h2,.how-it-works h2{
     margin-top:6px;
-    font-size:0.88rem;
-    color:var(--slate);
+    color:var(--pine-deep);
+    font-family:'Fraunces',serif;
+    font-size:1.8rem;
+    font-weight:500;
   }
+  .plan .intro{margin-top:8px;color:var(--slate);max-width:55ch;}
+  .trip-form{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:16px;
+    margin-top:28px;
+    align-items:end;
+  }
+  .trip-form label{display:block;color:var(--pine-deep);font-size:0.86rem;font-weight:600;}
+  .trip-form input,.trip-form select{
+    width:100%;
+    min-height:48px;
+    margin-top:7px;
+    padding:10px 12px;
+    border:1px solid #AEB5A8;
+    border-radius:8px;
+    background:var(--paper-raised);
+    color:var(--ink);
+    font:inherit;
+  }
+  .trip-form .btn-primary{
+    width:100%;
+    min-height:48px;
+    border:0;
+    border-radius:8px;
+    font:inherit;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .plan .reassurance{margin-top:14px;color:var(--slate);font-size:0.84rem;}
+
+  /* ---------- planning steps ---------- */
+  .how-it-works{padding:18px 0 76px;}
+  .how-it-works .steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:24px;
+  }
+  .how-it-works .step{
+    min-height:156px;
+    padding:24px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:var(--paper-raised);
+  }
+  .how-it-works .step .number{
+    display:grid;
+    place-items:center;
+    width:34px;
+    height:34px;
+    margin-bottom:16px;
+    border-radius:50%;
+    background:#EFE4D3;
+    color:var(--brass-deep);
+    font-size:.86rem;
+    font-weight:600;
+  }
+  .how-it-works .step strong{display:block;color:var(--pine-deep);margin-bottom:6px;}
+  .how-it-works .step p{color:var(--slate);font-size:0.92rem;}
 
   /* ---------- philosophy ---------- */
   .philosophy{
-    padding:84px 0;
+    padding:72px 0;
+    background:#EAEFF0;
   }
   .philosophy .wrap{
     max-width:720px;
@@ -182,9 +273,7 @@
   /* ---------- for travellers ---------- */
   .travellers{
     background:var(--paper-raised);
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    padding:64px 0;
+    padding:72px 0;
   }
   .travellers .grid{
     display:grid;
@@ -216,7 +305,7 @@
   .partner-teaser .box{
     background:var(--pine-deep);
     color:var(--paper-raised);
-    border-radius:4px;
+    border-radius:14px;
     padding:52px 48px;
     display:grid;
     grid-template-columns:1.3fr 0.7fr;
@@ -257,66 +346,108 @@
   footer a{color:var(--slate);}
 
   @media (max-width:760px){
+    .wrap{padding:0 20px;}
+    nav{padding-top:20px;}
+    .nav-links{gap:12px;}
+    .nav-links a:not(.nav-cta){display:none;}
     .hero .wrap{grid-template-columns:1fr;}
-    .hero-art{display:none;}
-    .hero h1{font-size:2.5rem;max-width:none;}
+    .hero{padding-top:24px;}
+    .hero-art{display:block;height:280px;margin-top:12px;}
+    .hero h1{font-size:clamp(2.7rem,9vw,3.5rem);max-width:15ch;}
+    .plan{padding:32px 0 44px;}
+    .plan .panel{padding:26px 20px;border-radius:12px;}
+    .trip-form{grid-template-columns:1fr 1fr;}
+    .trip-form .btn-primary{grid-column:1/-1;}
+    .how-it-works .steps{grid-template-columns:1fr;gap:12px;}
+    .how-it-works .step{min-height:0;padding:20px;}
     .travellers .grid{grid-template-columns:1fr;}
-    .partner-teaser .box{grid-template-columns:1fr;text-align:left;}
+    .partner-teaser .box{grid-template-columns:1fr;text-align:left;padding:32px 24px;}
     .partner-teaser .btn-primary{justify-self:start;}
-    .regions .row{flex-direction:column;}
-    .region{border-left:none;border-top:1px solid var(--line);padding-left:0;padding-top:18px;}
-    .region:first-child{border-top:none;}
+  }
+  @media (max-width:420px){
+    .brand{width:108px;height:66px;}
+    .brand img{top:-23px;left:-4px;width:116px;height:116px;}
+    .nav-cta{font-size:0.82rem;}
+    .trip-form{grid-template-columns:1fr;}
+    .trip-form .btn-primary{grid-column:auto;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{transition:none!important;}
   }
 </style>
 </head>
 <body>
 
-<nav>
+<nav aria-label="Main navigation">
   <div class="wrap">
-    <a href="index.html" class="brand">Holipedia</a>
-    <a href="partner.html" class="nav-cta">Partner with us</a>
+    <a href="index.html" class="brand" aria-label="Holipedia home"><img src="assets/holipedia-logo.png" alt="Holipedia — Explore, Travel, Experience"></a>
+    <div class="nav-links">
+      <a href="#plan">Plan your trip</a>
+      <a href="partner.html" class="nav-cta">Partner with us</a>
+    </div>
   </div>
 </nav>
 
+<main>
 <section class="hero">
   <div class="wrap">
     <div>
-      <h1>Stays in the hills, chosen the way your own family would choose them.</h1>
-      <p class="sub">Holipedia connects travellers with hotels and homestays across Bhimtal, Nainital, Haldwani and Ramnagar — the ones we'd send our own family to.</p>
+      <p class="eyebrow">A more personal way to find your stay</p>
+      <h1>Find a stay that feels like your kind of place.</h1>
+      <p class="sub">Tell us where you’re headed and what matters to you. We’ll help you explore thoughtful hotels and homestays, with care from the first conversation.</p>
       <div class="ctas">
-        <a class="btn-primary" href="https://wa.me/918383809682?text=Hi%2C%20I%27m%20looking%20for%20a%20stay" target="_blank">Find a stay on WhatsApp</a>
+        <a class="btn-primary" href="#plan">Plan your stay</a>
         <a class="link-quiet" href="partner.html">List your hotel</a>
       </div>
     </div>
-    <div class="hero-art">
-      <svg viewBox="0 0 400 220" preserveAspectRatio="xMidYMax meet">
-        <polygon points="0,220 0,140 70,60 130,130 180,40 260,140 320,80 400,150 400,220" fill="#1F3B2C" opacity="0.55"/>
-        <polygon points="0,220 0,170 90,100 160,160 230,90 310,170 400,120 400,220" fill="#1F3B2C" opacity="0.85"/>
-        <circle cx="330" cy="50" r="18" fill="#A9823C" opacity="0.8"/>
-      </svg>
+    <figure class="hero-art">
+      <img src="assets/hill-stay.jpg" alt="A warm mountain lodge nestled beside a quiet alpine lake" fetchpriority="high">
+      <figcaption>Illustrative travel photography</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="plan" id="plan">
+  <div class="wrap">
+    <div class="panel">
+      <p class="eyebrow">Start with the details</p>
+      <h2>Where would you like to go?</h2>
+      <p class="intro">Share your destination, dates and group size. If you’re still deciding, tell us what kind of trip you have in mind and we’ll explore options together.</p>
+      <form class="trip-form" id="trip-form">
+        <label for="destination">Where would you like to go?
+          <input id="destination" name="destination" type="text" placeholder="Any destination, anywhere" autocomplete="address-level2" required>
+        </label>
+        <label for="check-in">Check-in
+          <input id="check-in" name="check-in" type="date" required>
+        </label>
+        <label for="check-out">Check-out
+          <input id="check-out" name="check-out" type="date" required>
+        </label>
+        <label for="guests">Guests
+          <select id="guests" name="guests">
+            <option>1 guest</option>
+            <option selected>2 guests</option>
+            <option>3 guests</option>
+            <option>4 guests</option>
+            <option>5+ guests</option>
+          </select>
+        </label>
+        <button class="btn-primary" type="submit">Explore stays on WhatsApp</button>
+      </form>
+      <p class="reassurance">No payment or commitment here — just a conversation with our local team.</p>
     </div>
   </div>
 </section>
 
-<section class="regions">
+<section class="how-it-works">
   <div class="wrap">
-    <div class="row">
-      <div class="region">
-        <div class="name">Bhimtal</div>
-        <div class="note">Lakeside stays, quieter than Nainital</div>
-      </div>
-      <div class="region">
-        <div class="name">Nainital</div>
-        <div class="note">The mall road classics and the hillside quiet ones</div>
-      </div>
-      <div class="region">
-        <div class="name">Haldwani</div>
-        <div class="note">The gateway — where most journeys into the hills begin</div>
-      </div>
-      <div class="region">
-        <div class="name">Ramnagar</div>
-        <div class="note">Jim Corbett country, forest-edge stays</div>
-      </div>
+    <p class="eyebrow">The Holipedia difference</p>
+    <h2>Good trips start with a good conversation</h2>
+    <div class="steps">
+      <div class="step"><span class="number">01</span><strong>Tell us what matters</strong><p>Share where you’re going, your dates and what makes a stay feel right for you.</p></div>
+      <div class="step"><span class="number">02</span><strong>Explore considered options</strong><p>We’ll help you discover stays that match the kind of trip you have in mind.</p></div>
+      <div class="step"><span class="number">03</span><strong>Decide with confidence</strong><p>Ask questions, understand the details and choose at your own pace.</p></div>
     </div>
   </div>
 </section>
@@ -330,10 +461,10 @@
 
 <section class="travellers">
   <div class="wrap grid">
-    <h2>Planning a trip to the hills?</h2>
+    <h2>Planning your next trip?</h2>
     <div class="body">
-      <p>We're early — our stay collection is still growing region by region. Message us on WhatsApp with your dates and what you're looking for, and we'll match you with a place that fits, often one not listed anywhere else yet.</p>
-      <p><a href="https://wa.me/918383809682" target="_blank">Message Holipedia on WhatsApp →</a></p>
+      <p>Wherever you’re planning to go, message us with your dates and what you’re looking for. We’ll help explore stays that fit your trip and connect you with the right people.</p>
+      <p><a href="https://wa.me/918383809682" target="_blank" rel="noopener noreferrer">Message Holipedia on WhatsApp →</a></p>
     </div>
   </div>
 </section>
@@ -342,7 +473,7 @@
   <div class="wrap">
     <div class="box">
       <div>
-        <h2>Run a hotel or homestay in these hills?</h2>
+        <h2>Run a hotel or homestay?</h2>
         <p>List with Holipedia at no upfront cost. You only pay a commission once a guest actually stays.</p>
       </div>
       <a class="btn-primary" href="partner.html">See how partnering works</a>
@@ -353,9 +484,51 @@
 <footer>
   <div class="wrap">
     <div>© 2026 Holipedia</div>
-    <div><a href="mailto:holipedia2026@gmail.com">holipedia2026@gmail.com</a>&nbsp;&nbsp;&nbsp;<a href="https://instagram.com/holi.pedia" target="_blank">@holi.pedia</a></div>
+    <div><a href="mailto:hello.holipedia@gmail.com">hello.holipedia@gmail.com</a>&nbsp;&nbsp;&nbsp;<a href="https://instagram.com/holi.pedia" target="_blank" rel="noopener noreferrer">@holi.pedia</a></div>
   </div>
 </footer>
+
+<script>
+  const tripForm = document.getElementById('trip-form');
+  const checkIn = document.getElementById('check-in');
+  const checkOut = document.getElementById('check-out');
+
+  const today = new Date();
+  const localDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+    .toISOString()
+    .slice(0, 10);
+  checkIn.min = localDate;
+  checkOut.min = localDate;
+
+  checkIn.addEventListener('change', () => {
+    checkOut.min = checkIn.value || localDate;
+    checkOut.setCustomValidity('');
+    if (checkOut.value && checkOut.value <= checkIn.value) {
+     checkOut.value = '';
+    }
+  });
+  checkOut.addEventListener('change', () => checkOut.setCustomValidity(''));
+
+  tripForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    if (checkOut.value <= checkIn.value) {
+     checkOut.setCustomValidity('Check-out must be after check-in.');
+     checkOut.reportValidity();
+     return;
+    }
+    checkOut.setCustomValidity('');
+
+    const details = new FormData(tripForm);
+    const message = [
+     "Hi, I'm planning a trip and looking for a stay.",
+     `Destination: ${details.get('destination')}`,
+     `Check-in: ${details.get('check-in')}`,
+     `Check-out: ${details.get('check-out')}`,
+     `Guests: ${details.get('guests')}`
+    ].join('\n');
+    window.open(`https://wa.me/918383809682?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+  });
+</script>
 
 </body>
 </html>
