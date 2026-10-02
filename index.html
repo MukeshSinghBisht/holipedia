@@ -47,7 +47,7 @@
   }
   .brand{
     display:block;
-    width:138px;
+    width:160px;
     text-decoration:none;
   }
   .brand img{
@@ -56,6 +56,18 @@
     height:auto;
     mix-blend-mode:multiply;
   }
+  .brand-tagline{
+    display:block;
+    margin-top:2px;
+    color:var(--pine-deep);
+    font-size:.53rem;
+    font-weight:500;
+    letter-spacing:.035em;
+    line-height:1.2;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .brand-tagline span{color:var(--brass);}
   .nav-cta{
     font-size:0.95rem;
     color:var(--pine-deep);
@@ -364,10 +376,15 @@
     .partner-teaser .btn-primary{justify-self:start;}
   }
   @media (max-width:420px){
-    .brand{width:118px;}
+    .brand{width:144px;}
+    .brand-tagline{font-size:.5rem;letter-spacing:.02em;}
     .nav-cta{font-size:0.82rem;}
     .trip-form{grid-template-columns:1fr;}
     .trip-form .btn-primary{grid-column:auto;}
+  }
+  @media (max-width:360px){
+    .brand{width:118px;}
+    .brand-tagline{font-size:.42rem;letter-spacing:.01em;}
   }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
@@ -461,7 +478,10 @@
 
 <nav aria-label="Main navigation">
   <div class="wrap">
-    <a href="index.html" class="brand" aria-label="Holipedia home"><img src="assets/holipedia-logo-clean.png" alt="Holipedia — Explore, Travel, Experience"></a>
+    <a href="index.html" class="brand" aria-label="Holipedia home">
+      <img src="assets/holipedia-logo-mark.png" alt="Holipedia">
+      <span class="brand-tagline">EXPLORE <span aria-hidden="true">•</span> TRAVEL <span aria-hidden="true">•</span> EXPERIENCE</span>
+    </a>
     <div class="nav-links">
       <a href="#plan">Plan your trip</a>
       <a href="partner.html" class="nav-cta">Partner with us</a>

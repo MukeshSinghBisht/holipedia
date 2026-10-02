@@ -37,11 +37,23 @@
   nav{padding:28px 0 0;}
   nav .wrap{display:flex;justify-content:space-between;align-items:center;}
   .brand{
-    display:block;width:138px;text-decoration:none;
+    display:block;width:160px;text-decoration:none;
   }
   .brand img{
     display:block;width:100%;height:auto;mix-blend-mode:multiply;
   }
+  .brand-tagline{
+    display:block;
+    margin-top:2px;
+    color:var(--pine-deep);
+    font-size:.53rem;
+    font-weight:500;
+    letter-spacing:.035em;
+    line-height:1.2;
+    text-align:center;
+    white-space:nowrap;
+  }
+  .brand-tagline span{color:var(--brass);}
   .nav-actions{display:flex;align-items:center;gap:22px;}
   .back{
     font-size:0.92rem;color:var(--slate);text-decoration:none;font-weight:500;
@@ -250,7 +262,7 @@
   @media (max-width:700px){
     .wrap{padding-left:20px;padding-right:20px;}
     body{background-size:600px 375px;background-position:left top;}
-    .brand{width:118px;}
+    .brand{width:144px;}
     .page-head{padding:36px 0 44px;}
     .page-head .wrap{grid-template-columns:1fr;gap:28px;}
     .page-head h1{font-size:2.2rem;}
@@ -270,6 +282,12 @@
     .nav-actions{gap:10px;}
     .nav-contact{min-height:38px;padding:0 11px;font-size:.8rem;}
     .back{font-size:.82rem;}
+    .brand-tagline{font-size:.5rem;letter-spacing:.02em;}
+  }
+  @media (max-width:360px){
+    .brand{width:118px;}
+    .brand-tagline{font-size:.42rem;letter-spacing:.01em;}
+    .back{display:none;}
   }
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{transition:none!important;}
@@ -362,7 +380,10 @@
 
 <nav>
   <div class="wrap">
-    <a href="index.html" class="brand" aria-label="Holipedia home"><img src="assets/holipedia-logo-clean.png" alt="Holipedia — Explore, Travel, Experience"></a>
+    <a href="index.html" class="brand" aria-label="Holipedia home">
+      <img src="assets/holipedia-logo-mark.png" alt="Holipedia">
+      <span class="brand-tagline">EXPLORE <span aria-hidden="true">•</span> TRAVEL <span aria-hidden="true">•</span> EXPERIENCE</span>
+    </a>
     <div class="nav-actions">
       <a href="index.html" class="back">← Home</a>
       <a href="https://wa.me/918383809682?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20partnership%20for%20my%20property" class="nav-contact" target="_blank" rel="noopener noreferrer">Talk to us</a>
